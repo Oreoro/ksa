@@ -15,6 +15,10 @@ export const Block = styled.div`
   border-radius: 10px;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
   text-transform: uppercase;
+    @media (max-width: 768px) {
+    width: auto;
+    max-width: none;
+  } 
 `;
 
 export const CenteredContent = styled.div`
