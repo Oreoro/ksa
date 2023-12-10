@@ -12,6 +12,10 @@ const Container = styled.div`
   padding: 20px;
   margin-bottom: 20px;
   align-items: flex-start; 
+    @media (max-width: 768px) {
+    flex-direction: column;
+  } 
+   
 
   
 `;
@@ -25,9 +29,18 @@ const ColorfulBlock = styled.div`
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
   transtion: all 0.2s ease-in-out;
   box-sizing: border-box;
+  &amp;:hover {
+    transform: scale(1.1);
+}
+ @media (max-width: 768px) {
+    width: auto;
+    max-width: none;
+}
+
 `;
 
 function App() {
+  const randomColor = () => '#' + Math.floor(Math.random()*16777215).toString(16);
   const initialColors = [
     { color: "#FFC857" }, { color: "#E9724C" }, { color: "#C5283D" }, { color: "#8D99AE" }, 
     { color: "#EDF2F4" },{ color: "#FF6F61" }, { color: "#6B5B95" }, { color: "#88B04B" }, { color: "#F7CAC9" }, 
@@ -94,42 +107,76 @@ function App() {
   return (
     <ScalingWrapper> 
     <div>
-      <Container>
-        {blocks1.map((block, index) => (
-          <ColorfulBlock key={index} color={block.color}/>
-        ))}
-      </Container>
-      <Container>
-        {blocks2.map((block, index) => (
-          <ColorfulBlock key={index} color={block.color}/>
-        ))}
-      </Container>
-      <Container>
-        {blocks3.map((block, index) => (
-          <ColorfulBlock key={index} color={block.color}/>
-        ))}
-      </Container>
-      <Container>
-        {blocks4.map((block, index) => (
-          <ColorfulBlock key={index} color={block.color}/>
-        ))}
-      </Container>
-      <Container>
-        {blocks5.map((block, index) => (
-          <ColorfulBlock key={index} color={block.color}/>
-        ))}
-      </Container>
-      <Container>
-        {blocks6.map((block, index) => (
-          <ColorfulBlock key={index} color={block.color}/>
-        ))}
-      </Container>
-    
-    
+    <Container>
+{blocks1.map((block, index) => (
+  <ColorfulBlock 
+    key={index} 
+    color={block.color}
+    onDoubleClick={(evt) => {
+        evt.target.style.backgroundColor = randomColor();
+    }}
+  />
+))}
+</Container>
+<Container>
+{blocks2.map((block, index) => (
+  <ColorfulBlock 
+    key={index} 
+    color={block.color}
+    onDoubleClick={(evt) => {
+        evt.target.style.backgroundColor = randomColor();
+    }}
+  />
+))}
+</Container>
 
-      
-      
+<Container>
+{blocks3.map((block, index) => (
+  <ColorfulBlock 
+    key={index} 
+    color={block.color}
+    onDoubleClick={(evt) => {
+        evt.target.style.backgroundColor = randomColor();
+    }}
+  />
+))}
+</Container>
 
+<Container>
+{blocks4.map((block, index) => (
+  <ColorfulBlock 
+    key={index} 
+    color={block.color}
+    onDoubleClick={(evt) => {
+        evt.target.style.backgroundColor = randomColor();
+    }}
+  />
+))}
+</Container>
+
+<Container>
+{blocks5.map((block, index) => (
+  <ColorfulBlock 
+    key={index} 
+    color={block.color}
+    onDoubleClick={(evt) => {
+        evt.target.style.backgroundColor = randomColor();
+    }}
+  />
+))}
+</Container>
+
+<Container>
+{blocks6.map((block, index) => (
+  <ColorfulBlock 
+    key={index} 
+    color={block.color}
+    onDoubleClick={(evt) => {
+        evt.target.style.backgroundColor = randomColor();
+    }}
+  />
+))}
+</Container>
     </div>
     </ScalingWrapper>
   );
