@@ -18,7 +18,8 @@ border-radius: 6px;
 padding: 16px;
 margin: 16px;
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
+ @media (max-width: 768px) {
+    flex-direction: column;
 
 
 `;
